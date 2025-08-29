@@ -18,7 +18,7 @@ console.log(possuiHobbies)
 let minhaIdade: number
 minhaIdade = 27
 console.log(typeof minhaIdade)
-// minhaIdade = 'idade é 27'
+// minhaIdade = '27'
 
 // array
 let hobbies: any[] = ["Cozinhar", "Praticar Esportes"]
@@ -74,7 +74,7 @@ function digaOi(): void {
 
 digaOi()
 
-function multiplicar(numA: any, numB: any): number {
+function multiplicar(numA: number, numB: number): number {
     return numA * numB
 }
 
@@ -103,7 +103,7 @@ console.log(usuario)
 //     name: 'Maria',
 //     age: 31
 // }
-
+    
 usuario = {
     idade: 31,
     nome: 'Maria',
@@ -113,8 +113,8 @@ console.log(usuario)
 // Desafio
 /*
     Criar um objeto funcionário com:
-        - Array de strings com os nomes dos surpevisores
-        - Função de bater ponto que recebe a hora (número)
+        - Array de strings com os nomes dos supervisores
+        - Função de bater ponto que recebe a hora (número) 
             e retorna uma string
             -> Ponto normal (<= 8)
             -> Fora do horário (> 8)
@@ -122,7 +122,7 @@ console.log(usuario)
 // Alias
 type Funcionario = {
     supervisores: string[],
-    baterPonto: (horas: number) => string    
+    baterPonto: (horas: number) => string
 }
 
 let funcionario: Funcionario = {
@@ -151,7 +151,7 @@ console.log(funcionario.supervisores)
 console.log(funcionario.baterPonto(8))
 console.log(funcionario.baterPonto(9))
 
-// funcionaro = {}
+// funcionario = {}
 
 // Union Types
 let nota: number | string = 10
@@ -163,7 +163,7 @@ console.log(`Minha nota é ${nota}!`)
 // Checando tipos
 let valor = 30
 
-if(typeof valor === "number") {
+if (typeof valor === "number") {
     console.log("É um number!")
 } else {
     console.log(typeof valor)
@@ -211,26 +211,16 @@ console.log(contato1.nome)
 console.log(contato1.tel1)
 console.log(contato1.tel2)
 
-let podeSerNulo = null
+let podeSerNulo = null // any!
 podeSerNulo = 12
 console.log(podeSerNulo)
 podeSerNulo = 'abc'
 console.log(podeSerNulo)
 
-
-
-
- 
 // Desafio
 type ContaBancaria = {
     saldo: number,
     depositar: (valor: number) => void
-}
-
-type Correntista = {
-    nome: string,
-    contaBancaria: ContaBancaria,
-    contatos: string[]
 }
 
 let contaBancaria: ContaBancaria = {
@@ -239,7 +229,13 @@ let contaBancaria: ContaBancaria = {
         this.saldo += valor
     }
 }
- 
+
+type Correntista = {
+    nome: string,
+    contaBancaria: ContaBancaria,
+    contatos: string[]
+}
+
 let correntista: Correntista = {
     nome: 'Ana Silva',
     contaBancaria: contaBancaria,

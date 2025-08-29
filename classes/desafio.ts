@@ -1,61 +1,56 @@
 // Exercício 1 - Classe
 class Moto {
     public velocidade: number = 0
+
     constructor(public nome: string) {
 
     }
- 
-    public buzinar(): void {
+
+    buzinar() {
         console.log('Toooooooooot!')
     }
 
-    public acelerar(delta: number): number {
-        return this.velocidade = this.velocidade + delta
-    } 
+    acelerar(delta: number) {
+        this.velocidade = this.velocidade + delta
+    }
 }
- 
-var moto = new Moto('Ducati')
+
+const moto = new Moto('Ducati')
 moto.buzinar()
 console.log(moto.velocidade)
 moto.acelerar(30)
 console.log(moto.velocidade)
  
-
-
 // Exercício 2 - Herança
-class Objeto2D {
-    protected base: number = 0
-    protected altura: number = 0
-}
- 
-class Retangulo extends Objeto2D {
-    constructor(base: number, altura: number){
-        super();
-        this.base = base;
-        this.altura = altura;
+abstract class Objeto2D {
+    constructor(public base: number = 0, public altura: number = 0) {
     }
 
-    public area(): number {
+    abstract area(): number
+}
+
+class Retangulo extends Objeto2D {
+    area(): number {
         return this.base * this.altura
     }
 }
 
 const retangulo = new Retangulo(5, 7)
+retangulo.base = 10
+// retangulo.altura = 7
 console.log(retangulo.area())
  
-
-
 // Exercício 3 - Getters & Setters
 class Estagiario {
     private _primeiroNome: string = ''
 
-    get primeiroNome(): string {
+    get primeiroNome() {
         return this._primeiroNome
     }
-
-    set primeiroNome(nome: string) {
-        if (nome.length >= 3) {
-            this._primeiroNome = nome
+    
+    set primeiroNome(valor) {
+        if (valor.length >= 3) {
+            this._primeiroNome = valor
         } else {
             this._primeiroNome = ''
         }
@@ -63,7 +58,6 @@ class Estagiario {
 }
 
 const estagiario = new Estagiario
-
 console.log(estagiario.primeiroNome)
 estagiario.primeiroNome = 'Le'
 console.log(estagiario.primeiroNome)

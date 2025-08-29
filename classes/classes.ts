@@ -4,7 +4,8 @@ class Data {
     public mes: number
     ano: number
 
-    constructor(dia: number = 1, mes: number = 1, ano: number = 1970) {
+    constructor(dia: number = 1, mes: number = 1,
+        ano: number = 1970) {
         this.dia = dia
         this.mes = mes
         this.ano = ano
@@ -22,7 +23,9 @@ console.log(casamento)
 
 
 class DataEsperta {
-    constructor(public dia: number = 1, public mes: number = 1, public ano: number = 1970) {
+    constructor(public dia: number = 1, public mes: number = 1,
+        public ano: number = 1970) {
+
     }
 }
 
@@ -39,10 +42,12 @@ console.log(casamentoEsperto)
 // Atributos: nome, preco e desconto
 // Criar o construtor
 // Obs 1.: Desconto é opcional (valor padrão 0)
-// Obs.: Criar dois produtos: passando dois e três params
+// Obs 2.: Criar dois produtos: passando dois e três params
 
 class Produto {
-    constructor(public nome: string, public preco: number, public desconto: number = 0) {
+    constructor(public nome: string, public preco: number,
+        public desconto: number = 0) {
+        
     }
 
     // tb é public
@@ -156,7 +161,6 @@ console.log(pessoa1.idade)
 pessoa1.idade = -3
 console.log(pessoa1.idade)
 
-
 // Atributos e métodos estáticos
 class Matematica {
     static PI: number = 3.1416
@@ -222,13 +226,14 @@ console.log(Unico.getInstance().agora())
 // Somente Leitura
 class Aviao {
     public readonly modelo: string
-    
-    constructor(modelo: string, public readonly prefixo: string) {
+
+    constructor(modelo: string,
+        public readonly prefixo: string) {
         this.modelo = modelo
     }
 }
 
 const turboHelice = new Aviao('Tu-114', 'PT-ABC')
-// turoHelice.modelo = 'DC-8'
-// turoHelice.prefixo = PT-DEF'
+// turboHelice.modelo = 'DC-8'
+// turboHelice.prefixo = 'PT-DEF'
 console.log(turboHelice)

@@ -1,5 +1,5 @@
 // let & const
-var seraQuePode = '?'
+let seraQuePode = '?'
 console.log(seraQuePode)
 
 let estaFrio = true
@@ -12,7 +12,7 @@ const cpf: string = '123.456.000-99'
 // cpf = '789.101.132-78'
 console.log(cpf)
 
-var segredo = "externo!"
+var segredo = 'externo!'
 function revelar() {
     const segredo = 'interno'
     console.log(segredo)
@@ -27,7 +27,7 @@ console.log(segredo)
     }
 }
 
-for (let i = 0; i < 10; i++) {
+for(let i = 0; i < 10; i++) {
     console.log(i)
 }
 // console.log(i)
@@ -69,7 +69,7 @@ falarCom('João')
 
 // Parâmetros padrão
 function contagemRegressiva(inicio: number = 5,
-    fim: number = inicio -5): void {
+    fim: number = inicio - 5): void {
     console.log(inicio)
     while(inicio > fim) {
         inicio--
@@ -79,7 +79,7 @@ function contagemRegressiva(inicio: number = 5,
 }
 
 contagemRegressiva()
-contagemRegressiva(5)
+contagemRegressiva(3)
 
 // Rest & Spread
 const numbers = [1, 10, 99, -5, 200, 1034]
@@ -137,33 +137,30 @@ const precoItem = item.preco
 console.log(nomeItem)
 console.log(precoItem)
 
-const { nome:n, preco: p, caracteristicas: { w } } = item
+const { nome: n, preco: p, caracteristicas: { w } } = item
 console.log(n)
 console.log(p)
 console.log(w)
 
 const usuarioID: string = 'SuporteCod3r'
 const notificacoes: string = '19'
-// const boasVindas = 'Boas vindas ' + usuarioID + 
-//      'Notificações: ' + notificacoes
+// const boasVindas = 'Boas vindas ' + usuarioID +
+//     'Notificações: ' + notificacoes
 const boasVindas = `
 Boas vindas ${usuarioID},
 Notificações: ${parseInt(notificacoes) > 9 ? '+9' : notificacoes}
 `
 console.log(boasVindas)
-console.log(`${(1+1) * 30}`)
+console.log(`${(1 + 1) * 30}`)
 console.log(`Motor: ${caracteristicas[0]}`)
 
 // Desafios
 // Exercicio 1
-const dobro = (valor: number): number => {
-    return valor * 2
-}
+const dobro = (valor: number): number => valor * 2
 console.log(dobro(10))
 
 // Exercicio 2
-const dizerOla = (nome?: string): void => {
-    if (!nome) {nome = 'Pessoa'}
+const dizerOla = function (nome: string = 'Pessoa'): void {
     console.log('Olá, ' + nome)
 }
 
@@ -171,23 +168,53 @@ dizerOla()
 dizerOla('Anna')
 
 // Exercicio 3
-
-const nums: number[] = [-3, 33, 38, 5];
+const nums = [-3, 33, 38, 5]
 // Imprimir o menor valor
 console.log(Math.min(...nums))
 
 // Exercicio 4
-const array: number[] = [55, 20] 
+const array = [55, 20]
 // Adicionar todos os elementos de "nums" em array
 array.push(...nums)
 console.log(array)
 
 // Exercicio 5
-const notas: number[] = [8.5, 6.3, 9.4]
-const [nota1 , nota2, nota3] = notas
+const notas = [8.5, 6.3, 9.4]
+const [nota1, nota2, nota3] = notas
 console.log(nota1, nota2, nota3)
 
 // Exercicio 6
 const cientista = { primeiroNome: 'Will', expeciencia: 12 }
 const { primeiroNome, expeciencia } = cientista
 console.log(primeiroNome, expeciencia)
+
+// Callback
+
+// function esperar3s(callback: (dado: string) => void) {
+//     setTimeout(() => {
+//         callback('3s depois...')
+//     }, 3000)
+// }
+
+// esperar3s(function(resultado: string) {
+//     console.log(resultado)
+// })
+
+// function esperar3sPromise() {
+//     return new Promise((resolve: any) => {
+//         setTimeout(() => {
+//             resolve('3s depois promise...')
+//         }, 3000)
+//     })
+// }
+
+// // esperar3sPromise()
+// //     .then(dado => console.log(dado))
+
+// fetch('https://swapi.co/api/people/1')
+//     .then(res => res.json())
+//     .then(personagem => personagem.films)
+//     .then(films => fetch(films[0]))
+//     .then(resFilm => resFilm.json())
+//     .then(filme => console.log(filme.title))
+//     .catch(err => console.log('Catch!!!!' + err))
